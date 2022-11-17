@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import java.sql.SQLOutput;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WorkScheduleTest {
@@ -29,10 +32,16 @@ class WorkScheduleTest {
     @Test
     void setRequiredNumberBothEqual () {
 
-        WorkSchedule ws = new WorkSchedule(5);
-        int beforeSchedule = ws.readSchedule(2).requiredNumber;
-        ws.setRequiredNumber(1,2,2;
-        assertEquals(beforeSchedule, ws.readSchedule(2).requiredNumber);
+        WorkSchedule ws = new WorkSchedule(3);
+
+        ws.setRequiredNumber(2, 0, 2);
+        ws.addWorkingPeriod("A", 0, 2);
+        ws.addWorkingPeriod("B", 0, 2);
+        ws.setRequiredNumber(1, 0, 2);
+
+        //setRequiredNumber removes all employees from the schedule
+        assertTrue(ws.readSchedule(0).workingEmployees.length == 1);
+
     }
 
     @Test
