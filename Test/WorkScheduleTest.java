@@ -29,8 +29,7 @@ class WorkScheduleTest {
 
     }
 
-    @Test
-        //Partition #2: endTime >= startTime & nemployee < workingEmployee.length[startTime]
+    @Test //Partition #2: endTime >= startTime & nemployee < workingEmployee.length[startTime]
     void setRequiredNumberPartition2() {
         WorkSchedule ws = new WorkSchedule(3);
 
@@ -58,6 +57,7 @@ class WorkScheduleTest {
 
         //setRequiredNumber works when the new number is greater than the old number
         assertEquals(2, ws.readSchedule(0).workingEmployees.length);
+        //requiredNumber is set to the new number
         assertEquals(reqNum, 3);
 
 
