@@ -12,14 +12,14 @@ class WorkScheduleTest {
         // startTime > endTime
     void setRequiredNumberPartition1() {
         WorkSchedule ws = new WorkSchedule(5);
-
+        WorkSchedule ws2 = ws;
         ws.setRequiredNumber(1, 2, 1);
         int zero = ws.readSchedule(0).requiredNumber;
         int one = ws.readSchedule(1).requiredNumber;
         int two = ws.readSchedule(2).requiredNumber;
         int three = ws.readSchedule(3).requiredNumber;
         int four = ws.readSchedule(4).requiredNumber;
-        WorkSchedule ws2 = ws;
+
         assertEquals(0, zero);
         assertEquals(0, one);
         assertEquals(0, two);
@@ -29,7 +29,7 @@ class WorkScheduleTest {
 
     }
 
-    @Test //Partition #2: endTime >= startTime & nemployee < workingEmployee.length[startTime]
+    @Test // endTime >= startTime & nemployee < workingEmployee.length[startTime]
     void setRequiredNumberPartition2() {
         WorkSchedule ws = new WorkSchedule(3);
 
