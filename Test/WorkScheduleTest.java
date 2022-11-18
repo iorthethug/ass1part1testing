@@ -12,21 +12,17 @@ class WorkScheduleTest {
         // startTime > endTime
     void setRequiredNumberPartition1() {
         WorkSchedule ws = new WorkSchedule(5);
-        WorkSchedule ws2 = ws;
         ws.setRequiredNumber(1, 2, 1);
         int zero = ws.readSchedule(0).requiredNumber;
         int one = ws.readSchedule(1).requiredNumber;
         int two = ws.readSchedule(2).requiredNumber;
         int three = ws.readSchedule(3).requiredNumber;
         int four = ws.readSchedule(4).requiredNumber;
-
         assertEquals(0, zero);
         assertEquals(0, one);
         assertEquals(0, two);
         assertEquals(0, three);
         assertEquals(0, four);
-        assertEquals(ws, ws2);
-
     }
 
     @Test // endTime >= startTime & nemployee < workingEmployee.length[startTime]
@@ -64,16 +60,6 @@ class WorkScheduleTest {
     }
 
     @Test
-    void setRequiredNumber4() {
-        WorkSchedule ws = new WorkSchedule(5);
-        ws.setRequiredNumber(5, 1, 2);
-        int zero = ws.readSchedule(0).requiredNumber;
-
-        assertEquals(0, zero);
-    }
-
-
-    @Test
         // “input: currentTime = 0”, given schedule[0].workingEmployees.length < schedule[0].requiredNumber
     void nextIncompleteTest1() {
         WorkSchedule ws = new WorkSchedule(5);
@@ -88,7 +74,7 @@ class WorkScheduleTest {
     @Test
         // “input: currentTime = 0”, given schedule[0].workingEmployees.length == schedule[0].requiredNumber
     void nextIncompleteTest2() {
-        WorkSchedule ws = new WorkSchedule(5);
+        WorkSchedule ws = new WorkSchedule(3);
         ws.setRequiredNumber(1, 0, 2);
         ws.addWorkingPeriod("A", 0, 2);
         int next = ws.nextIncomplete(0);
